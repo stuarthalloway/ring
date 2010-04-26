@@ -1,6 +1,7 @@
 (ns ring.middleware.params
   "Parse form and query params."
-  (:require (clojure.contrib [str-utils :as str] [duck-streams :as duck])
+  (:require (clojure.contrib [str-utils :as str]
+                             [io :as io])
             (ring.util [codec :as codec])))
 
 (defn assoc-param
@@ -47,7 +48,7 @@
   [request encoding]
   (merge-with merge request
     (if-let [body (and (urlencoded-form? request) (:body request))]
-      (let [params (parse-params (duck/slurp* body) encoding)]
+      (let [params (parse-params (io/slurp* body) encoding)]
         {:form-params params, :params params})
       {:form-params {}, :params {}})))
 

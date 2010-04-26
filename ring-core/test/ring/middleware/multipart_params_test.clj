@@ -2,7 +2,7 @@
   (:use clojure.test
         ring.middleware.multipart-params
         [clojure.contrib.def :only (defvar-)])
-  (:require [clojure.contrib.duck-streams :as du]
+  (:require [clojure.contrib.io :as io]
             [ring.util.test :as test :as tu])
   (:import java.io.File))
 
@@ -28,4 +28,4 @@
       (is (= 5 (:size upload)))
       (is (= "text/plain" (:content-type upload)))
       (is (instance? File (:tempfile upload)))
-      (is (= "foo\r\n" (du/slurp* (:tempfile upload)))))))
+      (is (= "foo\r\n" (io/slurp* (:tempfile upload)))))))

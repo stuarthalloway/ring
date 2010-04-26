@@ -1,6 +1,6 @@
 (ns ring.util.servlet
   "Compatibility functions for turning a ring handler into a Java servlet."
-  (:use (clojure.contrib duck-streams except))
+  (:use (clojure.contrib io except))
   (:import (java.io File InputStream FileInputStream)
            (javax.servlet.http HttpServlet
                                HttpServletRequest
