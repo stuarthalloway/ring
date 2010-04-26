@@ -1,7 +1,7 @@
 (ns ring.middleware.cookies
   "Cookie manipulation."
   (:use [clojure.contrib.def :only (defvar-)])
-  (:require [clojure.contrib.java-utils :as ju]))
+  (:require [clojure.contrib.java :as ju]))
 
 (defvar- re-token #"[!#$%&'*\-+.0-9A-Z\^_`a-z\|~]+"
   "HTTP token: 1*<any CHAR except CTLs or tspecials>. See RFC2068")

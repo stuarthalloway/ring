@@ -1,6 +1,6 @@
 (ns ring.middleware.params
   "Parse form and query params."
-  (:require (clojure.contrib [str-utils :as str]
+  (:require (clojure.contrib [string :as str]
                              [io :as io])
             (ring.util [codec :as codec])))
 
@@ -26,7 +26,7 @@
           (codec/url-decode (or val "") encoding))
          param-map))
     {}
-    (str/re-split #"&" param-string)))
+    (str/split #"&" param-string)))
 
 (defn- assoc-query-params
   "Parse and assoc parameters from the query string with the request."

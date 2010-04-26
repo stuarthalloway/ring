@@ -3,7 +3,7 @@
   (:use (clojure.contrib [def :only (defvar-)]
                          [except :only (throw-if-not)]))
   (:require (ring.util [codec :as codec] [response :as response])
-            [clojure.contrib.java-utils :as ju])
+            [clojure.contrib.java :as ju])
   (:import java.io.File))
 
 (defn- ensure-dir
